@@ -1,4 +1,4 @@
 bind = "0.0.0.0:8000"
-pythonpath = "/home/kotya/web/ask"
+pythonpath = "/home/box/web/ask"
 workers = 5
 
