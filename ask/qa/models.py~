@@ -22,7 +22,7 @@ class Question(models.Model):
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField()
-    question = models.ForeignKey(Question, null=True)
+    question = models.ForeignKey(Question, null=True, on_delete = models.SET_NULLS)
     author = models.CharField(max_length=255)
     class Meta:
         db_table = 'qaanswers'
