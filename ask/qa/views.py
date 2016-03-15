@@ -33,5 +33,5 @@ def popular(request):
 })
 
 def question(request, id):
-    question = Question.objects.get(id=id)
+    question = get_object_or_404(Question, id=id)
     return render(request, 'question.html', {'question': question,})

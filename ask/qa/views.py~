@@ -32,6 +32,6 @@ def popular(request):
 	'paginator': paginator,
 })
 
-def question(reguest, id):
+def question(request, id):
     question = Question.objects.get(id=id)
     return render(request, 'question.html', {'question': question,})
