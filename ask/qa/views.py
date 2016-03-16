@@ -34,4 +34,10 @@ def popular(request):
 
 def question(request, id):
     question = get_object_or_404(Question, id=id)
-    return render(request, 'question.html', {'question': question,})
+    answers = question.answer_set.all()
+    answer_form = AnswerForm({"question": question.id})
+    return render(request, 'question.html', {
+        'question': question,
+        'answers': answers,
+        'form': answer_form
+    })
