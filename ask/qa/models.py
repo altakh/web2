@@ -27,4 +27,3 @@ class Answer(models.Model):
     author = models.CharField(max_length=255)
     class Meta:
         db_table = 'qaanswers'
-	order_with_respect_to = 'question'

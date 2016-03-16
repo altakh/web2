@@ -6,5 +6,9 @@
 <h1>{{ question.title }}</h1>
 <hr>
 <p>{{ question.text }}</p>
+<hr>
+{% for object in page.object_list %}
+	<a href="{{ object.get_absolute_url }}"><h1>{{ object.title }}</h1></a>
+{% endfor %}
 {% endblock %}
 

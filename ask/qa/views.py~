@@ -34,4 +34,12 @@ def popular(request):
 
 def question(request, id):
     question = Question.objects.get(id=id)
-    return render(request, 'question.html', {'question': question,})
+    answers = Answer.objects.filter(question_id=id)
+    limit = request.GET.get('limit',10)
+    page = request.GET.get('page',1)
+    paginator = Paginator(answers, limit)
+    page = paginator.page(page)
+    return render(request, 'question.html', {'question': question, 
+					     'answers': page.object_list,
+				             'page': page, 
+				             'paginator': paginator, })
